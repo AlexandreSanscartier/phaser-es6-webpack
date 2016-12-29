@@ -14,6 +14,13 @@ export default class extends Phaser.State {
     banner.fill = '#77BFA3'
     banner.anchor.setTo(0.5)
 
+    let debugBanner = this.add.text(this.game.world.centerX, this.game.height - 120, 'Phaser + ES6 + Webpack')
+    debugBanner.font = 'Nunito'
+    debugBanner.fontSize = 40
+    debugBanner.fill = '#000000'
+    debugBanner.anchor.setTo(0.5)
+
+
     this.mushroom = new Mushroom({
       game: this.game,
       x: this.game.world.centerX,
@@ -28,7 +35,8 @@ export default class extends Phaser.State {
 
   render () {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.cameraInfo(this.game.camera, 32, 120, "#000000")
+      this.game.debug.spriteInfo(this.mushroom, 32, 32, "#000000")
     }
   }
 }

@@ -13,8 +13,11 @@ export default class extends Phaser.State {
       google: {
         families: ['Nunito']
       },
-      active: this.fontsLoaded
+      active: this.fontsLoaded,
     })
+
+    //Ignore web font load for now
+    this.fontsReady = true;
 
     let text = this.add.text(this.world.centerX, this.world.centerY, 'loading fonts', { font: '16px Arial', fill: '#dddddd', align: 'center' })
     text.anchor.setTo(0.5, 0.5)
